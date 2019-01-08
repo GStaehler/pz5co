@@ -2,211 +2,279 @@
 <html lang="fr">
 
 <head>
-	<meta charset="utf-8">
-	<title>PZ-5CO</title>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://image.freepik.com/vecteurs-libre/visage-numerique-technologie-particules-pour-concept-intelligence-artifiticial_1017-11831.jpg" rel="icon">
-</head>
+    <meta charset="utf-8">
+    <title>PZ-5CO</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://image.freepik.com/vecteurs-libre/visage-numerique-technologie-particules-pour-concept-intelligence-artifiticial_1017-11831.jpg" rel="icon">
 
-<style>
-	p {
-		font-size: 16px;
-	}
-	
-	.input-margin {
-		margin: 8px;
-	}
-	
-	.bg-danger {
-		background-color: darkslateblue !important;
-	}
-	
-	.bg-info {
-		background-color: midnightblue !important;
-	}
+    <style>
+        p {
+        font-size: 16px;
+    }
+
+    .input-margin {
+        margin: 8px;
+    }
+
+    .bg-danger {
+        background-color: darkslateblue !important;
+    }
+
+    .bg-info {
+        background-color: midnightblue !important;
+    }
+        
+    .custom-card {
+        width: 168px;
+        border: 2px solid black;
+        border-radius: 6px;
+        height: 204px;
+        padding: 8px;
+        margin: auto;
+}
+
 </style>
 
+</head>
+
 <body class="container bg-light" style="margin-right: 180px; margin-left: 180px; margin-top: 20px;">
-	<header class="text-center">
-		<img src="https://image.freepik.com/vecteurs-libre/visage-numerique-technologie-particules-pour-concept-intelligence-artifiticial_1017-11831.jpg" width="100" height="100" class="rounded" style="margin-bottom: 10px;"> <!-- <a href="https://fr.freepik.com/photos-vecteurs-libre/fond">Fond vecteur créé par starline - fr.freepik.com</a> -->
-		<h1>PZ-5CO</h1>
-		<small>&copy; Gauthier Staehler</small>
-	</header>
-	<form id="form" onsubmit="return false;">
-		<input style="margin-bottom: 20px; margin-top: 20px;" class="form-control" type="text" placeholder="Parle moi !" id="userInput" value="" autocomplete="off" />
-		<input style="display: none;" type="submit" onclick="speaking();" />
-	</form>
-	<div id="conversation"></div>
-	<div id="loader" style="display: none;">
-		<img src="loader.gif">
-	</div>
+    <header class="text-center custom-card">
+        <img src="https://image.freepik.com/vecteurs-libre/visage-numerique-technologie-particules-pour-concept-intelligence-artifiticial_1017-11831.jpg" alt="Logo" width="100" height="100" class="rounded" style="margin-bottom: 10px;"> <!-- <a href="https://fr.freepik.com/photos-vecteurs-libre/fond">Fond vecteur créé par starline - fr.freepik.com</a> -->
+        <h1 style="margin-bottom: 0px;">PZ-5CO</h1>
+        <small>&copy; Gauthier Staehler</small>
+    </header>
+    <form id="form" onsubmit="return false;">
+        <input style="margin-bottom: 20px; margin-top: 20px;" class="form-control" type="text" placeholder="De quoi as tu besoin?" id="userInput" value="" autocomplete="off" />
+        <input style="display: none;" type="submit" onclick="speaking();" />
+    </form>
+    <div id="conversation"></div>
+    <div id="loader" style="display: none;">
+        <img src="loader.gif" alt="Loader">
+    </div>
+
+    <script>
+        function speaking() {
+
+            function reponse(botSpeaking) {
+                botSpeaking.classList.add("bg-info", "text-white", "rounded", "p-2", "input-margin");
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("conversation").appendChild(botSpeaking);
+            }
+
+            var input = document.getElementById("userInput").value;
+            if (input.length > 0) {
+                var userSpeaking = document.createElement("p");
+                userSpeaking.textContent = input;
+                userSpeaking.classList.add("bg-danger", "text-white", "rounded", "p-2", "input-margin");
+                document.getElementById("conversation").appendChild(userSpeaking);
+            }
+
+            // SALUTATION
+            if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/hey.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/coucou.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/salut.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/bonjour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/bonsoir.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/yo.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/hello.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var now = new Date();
+                        var heure = now.getHours();
+                        if (heure > 18) {
+                            salutations = ["Salut !", "Bonsoir !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonsoir !"];
+                        } else {
+                            var salutations = ["Salut !", "Bonjour !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonjour !"];
+                        }
+                        var salutation = salutations[Math.floor(Math.random() * salutations.length)];
+                        botSpeaking.textContent = salutation;
+                        reponse(botSpeaking);
+                    }, 4000);
+                }, 3000);
+            }
+
+            // DATE
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var now = new Date();
+                        var mois = now.getMonth() + 1;
+                        var nomduMois;
+                        switch (mois) {
+                            case 1:
+                                nomduMois = "janvier";
+                                break;
+                            case 2:
+                                nomduMois = "février";
+                                break;
+                            case 3:
+                                nomduMois = "mars";
+                                break;
+                            case 4:
+                                nomduMois = "avril";
+                                break;
+                            case 5:
+                                nomduMois = "mai";
+                                break;
+                            case 6:
+                                nomduMois = "juin";
+                                break;
+                            case 7:
+                                nomduMois = "juillet";
+                                break;
+                            case 8:
+                                nomduMois = "août";
+                                break;
+                            case 9:
+                                nomduMois = "septembre";
+                                break;
+                            case 10:
+                                nomduMois = "octobre";
+                                break;
+                            case 11:
+                                nomduMois = "novembre";
+                                break;
+                            case 12:
+                                nomduMois = "décembre";
+                                break;
+                        }
+                        var jour = now.getDate();
+                        botSpeaking.textContent = "On est le " + jour + " " + nomduMois + " !";
+                        reponse(botSpeaking);
+                    }, 3000);
+                }, 2000);
+            }
+
+            // HEURE
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var now = new Date();
+                        var jour = now.getDate();
+                        var heure = now.getHours();
+                        var minute = now.getMinutes();
+                        if (minute < 10) {
+                            minute = "0" + minute;
+                        }
+                        botSpeaking.textContent = "Il est " + heure + "h" + minute + ".";
+                        reponse(botSpeaking);
+                    }, 3000);
+                }, 2000);
+            }
+
+            // PRESENTATION
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var presentations = ["Je m'appelle PZ-5CO, enchantée."];
+                        var presentation = presentations[Math.floor(Math.random() * presentations.length)];
+                        botSpeaking.textContent = presentation;
+                        reponse(botSpeaking);
+                    }, 3000);
+                }, 1000);
+            }
+
+            // POLITESSE
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment vas tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va bien?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va pour le mieux?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/la forme?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tu vas bien.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var politesses = ["Je vais bien, et toi comment vas tu?"];
+                        var politesse = politesses[Math.floor(Math.random() * politesses.length)];
+                        botSpeaking.textContent = politesse;
+                        reponse(botSpeaking);
+                    }, 3000);
+                }, 1000);
+            }
+
+            // POLITESSE 2
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/plutot bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais super bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je pète la forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/en super forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va mieux.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/oui ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai nickel.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var politesses2 = ["Super !", "Ça roule !", "Tant mieux !", "Oh, tant mieux !"];
+                        var politesse2 = politesses2[Math.floor(Math.random() * politesses2.length)];
+                        botSpeaking.textContent = politesse2;
+                        reponse(botSpeaking);
+                    }, 2000);
+                }, 1000);
+            }
+
+            // ADDITION
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/.*\+.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        botSpeaking.textContent = parseFloat(userSpeaking.textContent.split('+')[0]) + parseFloat(userSpeaking.textContent.split('+')[1]);
+                        reponse(botSpeaking);
+                    }, 3000);
+                }, 1000);
+            }
+
+            // CAPACITES APPRISES
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/que sais tu faire.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/que peux tu faire.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/de quoi es tu capable.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/a quoi sert tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/a quoi tu sert.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var presentation = "Je suis capable de saluer, me présenter, répondre à un remerciement, ouvrir un nouvel onglet ou une page web, donner la date et l'heure et additionner. Je suis aussi capable de politesse.";
+                        botSpeaking.textContent = presentation;
+                        reponse(botSpeaking);
+                    }, 4000);
+                }, 1000);
+            }
+
+            // OUVRIR UN NOUVEL ONGLET
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouvre un nouvel onglet.*/)) {
+                setTimeout(function() {
+                    window.open("", "_blank");
+                }, 1000);
+            }
+
+            // OUVRIR UNE PAGE WEB
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouvre.*/)) {
+                setTimeout(function() {
+                    var webPage = userSpeaking.textContent.split(" ").splice(-1)[0];
+                    if (webPage == "!" || webPage == ".") {
+                        webPage = userSpeaking.textContent.split(" ").splice(-2)[0];
+                    }
+                    window.open("https://" + webPage.replace(".", "").replace("!", "") + ".com", "_blank");
+                }, 1000);
+            }
+
+            // REPONSE A UN REMERCIEMENT
+            else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je te remercie.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/.*merci.*/)) {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var politesses3 = ["Il n'y a pas de quoi !", "De rien !", "Ce n'est rien !", "Pas de problème !"];
+                        var politesse3 = politesses3[Math.floor(Math.random() * politesses3.length)];
+                        botSpeaking.textContent = politesse3;
+                        reponse(botSpeaking);
+                    }, 2000);
+                }, 1000);
+            } else {
+                setTimeout(function() {
+                    document.getElementById("loader").style.display = "block";
+                    setTimeout(function() {
+                        var botSpeaking = document.createElement("p");
+                        var erreurs = ["Quoi?", "Pardon?", "... Oui?"];
+                        var erreur = erreurs[Math.floor(Math.random() * erreurs.length)];
+                        botSpeaking.textContent = erreur;
+                        reponse(botSpeaking);
+                    }, 2000);
+                }, 1000);
+            }
+            document.getElementById("userInput").value = "";
+        }
+
+    </script>
 </body>
-
-<script>
-	function speaking() {
-
-		function reponse(botSpeaking) {
-			botSpeaking.classList.add("bg-info", "text-white", "rounded", "p-2", "input-margin");
-			document.getElementById("loader").style.display = "none";
-			document.getElementById("conversation").appendChild(botSpeaking);
-		}
-
-		var input = document.getElementById("userInput").value;
-		if (input.length > 0) {
-			var userSpeaking = document.createElement("p");
-			userSpeaking.textContent = input;
-			userSpeaking.classList.add("bg-danger", "text-white", "rounded", "p-2", "input-margin");
-			document.getElementById("conversation").appendChild(userSpeaking);
-		}
-
-		// SALUTATION
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/hey.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/coucou.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/salut.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/bonjour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/bonsoir.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/yo.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/hello.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var salutations = ["Salut !", "Bonjour !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonjour !"];
-					var salutation = salutations[Math.floor(Math.random() * salutations.length)];
-					botSpeaking.textContent = salutation;
-					reponse(botSpeaking);
-				}, 4000);
-			}, 3000);
-		}
-
-		// DATE
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var now = new Date();
-					var mois = now.getMonth() + 1;
-					var nomduMois;
-					switch (mois) {
-						case 1:
-							nomduMois = "janvier";
-							break;
-						case 2:
-							nomduMois = "février";
-							break;
-						case 3:
-							nomduMois = "mars";
-							break;
-						case 4:
-							nomduMois = "avril";
-							break;
-						case 5:
-							nomduMois = "mai";
-							break;
-						case 6:
-							nomduMois = "juin";
-							break;
-						case 7:
-							nomduMois = "juillet";
-							break;
-						case 8:
-							nomduMois = "août";
-							break;
-						case 9:
-							nomduMois = "septembre";
-							break;
-						case 10:
-							nomduMois = "octobre";
-							break;
-						case 11:
-							nomduMois = "novembre";
-							break;
-						case 12:
-							nomduMois = "décembre";
-							break;
-					}
-					var jour = now.getDate();
-					botSpeaking.textContent = "On est déjà le " + jour + " " + nomduMois + ", ça passe trop vite !";
-					reponse(botSpeaking);
-				}, 3000);
-			}, 2000);
-		}
-
-		// HEURE
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var now = new Date();
-					var jour = now.getDate();
-					var heure = now.getHours();
-					var minute = now.getMinutes();
-					botSpeaking.textContent = "Il est " + heure + "h" + minute + ".";
-					reponse(botSpeaking);
-				}, 3000);
-			}, 2000);
-		}
-
-		// PRESENTATION
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var presentations = ["Je m'appelle PZ-5CO, enchantée."];
-					var presentation = presentations[Math.floor(Math.random() * presentations.length)];
-					botSpeaking.textContent = presentation;
-					reponse(botSpeaking);
-				}, 5000);
-			}, 1000);
-		}
-
-		// POLITESSE
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment vas tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va bien?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va pour le mieux?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/la forme?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tu vas bien.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var politesses = ["Je vais bien, et toi comment vas tu?"];
-					var politesse = politesses[Math.floor(Math.random() * politesses.length)];
-					botSpeaking.textContent = politesse;
-					reponse(botSpeaking);
-				}, 3000);
-			}, 1000);
-		}
-
-		// POLITESSE 2
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/plutot bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais super bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je pète la forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/en super forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va mieux.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/oui ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai nickel.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var politesses2 = ["Super !", "Ça roule !", "Tant mieux !", "Oh, tant mieux !"];
-					var politesse2 = politesses2[Math.floor(Math.random() * politesses2.length)];
-					botSpeaking.textContent = politesse2;
-					reponse(botSpeaking);
-				}, 2000);
-			}, 1000);
-		}
-
-		// REPONSE A UN REMERCIEMENT
-
-		if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je te remercie.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/merci.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/super merci.*/)) {
-			setTimeout(function() {
-				document.getElementById("loader").style.display = "block";
-				setTimeout(function() {
-					var botSpeaking = document.createElement("p");
-					var politesses3 = ["Il n'y a pas de quoi !", "De rien !", "Ce n'est rien !", "Pas de problème !"];
-					var politesse3 = politesses3[Math.floor(Math.random() * politesses3.length)];
-					botSpeaking.textContent = politesse3;
-					reponse(botSpeaking);
-				}, 2000);
-			}, 1000);
-		}
-		document.getElementById("userInput").value = "";
-	}
-</script>
 
 </html>
