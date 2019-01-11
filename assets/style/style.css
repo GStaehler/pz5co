@@ -1,0 +1,26 @@
+p {
+    font-size: 16px;
+}
+
+.p-2 {
+    width: 800px;
+}
+
+input {
+    border: 2px solid #343a40 !important;
+}
+
+.input-margin {
+    margin: 8px;
+}
+
+.custom-card {
+    width: 168px;
+    border: 2px solid #343a40;
+    border-radius: 6px;
+    height: 204px;
+    padding: 8px;
+    margin-left: 8px;
+    margin-right: 40px;
+    background-color: white;
+}
