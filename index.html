@@ -2,36 +2,49 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <title>PZ-5CO</title>
-    <link href="assets/style/style.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/img/logo.jpg" rel="icon">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PZ-5CO</title>
+	<link href="assets/style/style.css" rel="stylesheet">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="assets/img/logo.jpg" rel="icon">
 </head>
 
-<body class="container bg-light" style="margin-right: 20px; margin-left: 20px; margin-top: 20px;">
-    <div class="d-flex justify-content-start">
-        <div class="d-flex flex-column">
-            <header class="text-center custom-card">
-                <img src="assets/img/logo.jpg" alt="Logo" width="100" height="100" class="rounded" style="margin-bottom: 10px;"> <!-- Fond vecteur créé par starline - fr.freepik.com -->
-                <h1 style="margin-bottom: 0px;">PZ-5CO</h1>
-                <small>&copy; Gauthier Staehler</small>
-            </header>
-            <img src="assets/img/pdf-icon.png" alt="Download PDF" title="Télécharger la discussion au format PDF" style="margin: 10px; position: relative; left: 64px;" width="14%" /> <!-- Icons made by Freepik from www.flaticon.com is licensed by CC 3.0 BY -->
-        </div>
-        <main class="d-flex flex-column">
-            <form id="form" onsubmit="return false;">
-                <input style="width: 800px; margin-left: 8px; margin-right: 8px;" class="form-control" type="text" placeholder="Exemple: Que peux tu faire?" id="userInput" value="" autocomplete="off" />
-                <input style="display: none;" type="submit" onclick="speaking();" />
-            </form>
-            <div id="conversation"></div>
-            <div id="loader" style="display: none;">
-                <img src="assets/img/loader.gif" alt="Loader">
-            </div>
-        </main>
-    </div>
+<body class="container bg-light">
+	<div class="d-flex justify-content-start">
+		<div class="d-flex flex-column side">
+			<header class="text-center custom-card">
+				<img src="assets/img/logo.jpg" alt="Logo" width="100" height="100" class="rounded"> <!-- Fond vecteur créé par starline - fr.freepik.com -->
+				<h1>PZ-5CO</h1>
+				<small>Entièrement écrit par</small>
+				<p>Gauthier Staehler</p>
+				<hr>
+				<small>PZ-5CO est un programme JavaScript d'agent conversationnel qui répond et effectue des actions uniquement grâce à des commandes textuelles</small><br><br>
+				<small style="text-decoration: underline;">Technologies utilisées :</small><br>
+				<i class="fab fa-html5 fa-2x" alt="HTML5" title="HTML5"></i>
+				<i class="fab fa-css3-alt fa-2x" alt="CSS3" title="CSS3"></i>
+				<i class="fab fa-js fa-2x" alt="JavaScript" title="JavaScript"></i><br>
+				<small>Bootstrap 4.2.1</small><br>
+				<small>FontAwesome 5.6.3</small>
+			</header>
+			<!-- <img src="assets/img/pdf-icon.png" alt="Download PDF" title="Télécharger la discussion au format PDF" style="margin: 10px; position: relative; left: 64px;" width="14%" /> -->
+			<!-- Icons made by Freepik from www.flaticon.com is licensed by CC 3.0 BY -->
+			<a href="https://www.linkedin.com/in/gauthier-staehler-735075138/" target="_blank" style="width: 0px;"><i alt="LinkedIn" style="margin: 6px; position: relative; left: 108px;" title="Gauthier Staehler sur LinkedIn" class="fab fa-linkedin fa-2x" width="14%"></i></a>
+		</div>
+		<main class="d-flex flex-column">
+			<form id="form" onsubmit="return false;">
+				<input style="z-index: 10;" class="form-control" type="text" placeholder="Exemple: Que peux tu faire?" id="userInput" value="" autocomplete="off" autofocus />
+				<input style="display: none;" type="submit" onclick="speaking();" />
+			</form>
+			<div id="conversation"></div>
+			<div id="loader" style="display: none;">
+				<img src="assets/img/loader.gif" alt="Loader">
+			</div>
+		</main>
+	</div>
 
-    <script src="index.js"></script>
+	<script src="index.js"></script>
 </body>
 
 </html>
