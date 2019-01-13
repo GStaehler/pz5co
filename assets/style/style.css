@@ -3,12 +3,12 @@ p {
 }
 
 .p-2 {
-	width: 800px;
+	width: 600px;
 }
 
 input {
 	border: 2px solid #343a40 !important;
-	width: 800px !important;
+	width: 600px !important;
 	margin-left: 8px !important;
 	margin-right: 8px !important;
 	position: fixed;
@@ -22,7 +22,7 @@ input {
 	width: 260px;
 	border: 2px solid #343a40;
 	border-radius: 6px;
-	height: 500px;
+	height: 540px;
 	padding: 8px;
 	margin-right: 40px;
 	background-color: white;
@@ -85,5 +85,5 @@ main {
 #loader {
 	position: relative;
 	top: 48px;
-	left: 4px;
+	left: 8px;
 }
