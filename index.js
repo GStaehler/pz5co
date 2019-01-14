@@ -35,7 +35,7 @@ function speaking() {
     }
 
     // DATE
-    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour on est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
         setTimeout(function () {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
@@ -89,7 +89,7 @@ function speaking() {
     }
 
     // HEURE
-    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/)) {
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure il est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/)) {
         setTimeout(function () {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
@@ -108,7 +108,7 @@ function speaking() {
     }
 
     // PRESENTATION
-    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui t'es.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
         setTimeout(function () {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
@@ -122,7 +122,7 @@ function speaking() {
     }
 
     // POLITESSE
-    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment vas tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va bien?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va pour le mieux?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/la forme?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tu vas bien.*/)) {
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment vas tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment vas-tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment ça va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ça va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va bien?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tout va pour le mieux?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/la forme?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment va?.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/tu vas bien.*/)) {
         setTimeout(function () {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
@@ -136,7 +136,7 @@ function speaking() {
     }
 
     // POLITESSE 2
-    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/plutot bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais super bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je pète la forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/en super forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va mieux.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/oui ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai nickel.*/)) {
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/plutot bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais super bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je pète la forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/en super forme.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va mieux.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ça va mieux.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ça va bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/oui ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/oui ça va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai ca va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai ça va.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/nickel.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ouai nickel.*/)) {
         setTimeout(function () {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
@@ -144,6 +144,20 @@ function speaking() {
                 var politesses2 = ["Super !", "Ça roule !", "Tant mieux !", "Oh, tant mieux !"];
                 var politesse2 = politesses2[Math.floor(Math.random() * politesses2.length)];
                 botSpeaking.textContent = politesse2;
+                reponse(botSpeaking);
+            }, 2000);
+        }, 1000);
+    }
+    
+    // POLITESSE 3
+    else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je ne vais pas bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je ne vais pas trop bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je ne vais pas très bien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je vais mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/très mal.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/bof.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas trop.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ca va pas.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ça va pas.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/non ca va pas.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/non ça va pas.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas des masses.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/pas ouf.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comme ci comme ça.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je suis malade.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je suis très malade.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je suis trop malade.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/malade.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/j'ai le cancer.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/j'ai un cancer.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je fais une dépression.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/vite fais.*/)) {
+        setTimeout(function () {
+            document.getElementById("loader").style.display = "block";
+            setTimeout(function () {
+                var botSpeaking = document.createElement("p");
+                var politesses3 = ["Oh non !", "Il faut se reposer !", "Demain est un autre jour !", "Oh, courage !"];
+                var politesse3 = politesses3[Math.floor(Math.random() * politesses3.length)];
+                botSpeaking.textContent = politesse3;
                 reponse(botSpeaking);
             }, 2000);
         }, 1000);
@@ -319,9 +333,9 @@ function speaking() {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
                 var botSpeaking = document.createElement("p");
-                var politesses3 = ["Il n'y a pas de quoi !", "De rien !", "Ce n'est rien !", "Pas de problème !"];
-                var politesse3 = politesses3[Math.floor(Math.random() * politesses3.length)];
-                botSpeaking.textContent = politesse3;
+                var politesses4 = ["Il n'y a pas de quoi !", "De rien !", "Ce n'est rien !", "Je t'en prie !", "Je suis là pour ça !", "Pas de problème !"];
+                var politesse4 = politesses4[Math.floor(Math.random() * politesses4.length)];
+                botSpeaking.textContent = politesse4;
                 reponse(botSpeaking);
             }, 2000);
         }, 1000);
@@ -330,7 +344,7 @@ function speaking() {
             document.getElementById("loader").style.display = "block";
             setTimeout(function () {
                 var botSpeaking = document.createElement("p");
-                var erreurs = ["Quoi?", "Pardon?", "Oui?"];
+                var erreurs = ["Quoi?", "Pardon?", "Oui?", "Je n'ai pas compris !"];
                 var erreur = erreurs[Math.floor(Math.random() * erreurs.length)];
                 botSpeaking.textContent = erreur;
                 reponse(botSpeaking);
