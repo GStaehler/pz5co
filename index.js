@@ -1,7 +1,7 @@
 function speaking() {
 
 	function reponse(botSpeaking) {
-		botSpeaking.classList.add("bg-info", "text-white", "rounded", "p-2", "input-margin");
+		botSpeaking.classList.add("bg-info", "text-white", "rounded", "p-2");
 		document.getElementById("loader").style.display = "none";
 		document.getElementById("conversation").appendChild(botSpeaking);
 	}
@@ -10,7 +10,7 @@ function speaking() {
 	if (input.length > 0) {
 		var userSpeaking = document.createElement("p");
 		userSpeaking.textContent = input;
-		userSpeaking.classList.add("bg-danger", "text-white", "rounded", "p-2", "input-margin");
+		userSpeaking.classList.add("bg-danger", "text-white", "rounded", "p-2");
 		document.getElementById("conversation").appendChild(userSpeaking);
 	}
 
@@ -22,10 +22,11 @@ function speaking() {
 				var botSpeaking = document.createElement("p");
 				var now = new Date();
 				var heure = now.getHours();
-				if (heure > 18) {
+				var salutations;
+				if (heure >= 18) {
 					salutations = ["Salut !", "Bonsoir !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonsoir !"];
 				} else {
-					var salutations = ["Salut !", "Bonjour !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonjour !"];
+					salutations = ["Salut !", "Bonjour !", "Coucou !", "Hey !", "Oh, salut !", "Oh, bonjour !"];
 				}
 				var salutation = salutations[Math.floor(Math.random() * salutations.length)];
 				botSpeaking.textContent = salutation;
@@ -34,8 +35,46 @@ function speaking() {
 		}, 2000);
 	}
 
+	// ADRESSE IP
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est mon ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je voudrais mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/je voudrais connaitre mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dis moi quelle est mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/j'aimerais mon adresse ip.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/j'aimerais connaitre mon adresse ip.*/)) {
+		setTimeout(function () {
+			document.getElementById("loader").style.display = "block";
+			setTimeout(function () {
+				var botSpeaking = document.createElement("p");
+				$.ajax({
+					url: "https://geoip-db.com/jsonp",
+					jsonpCallback: "callback",
+					dataType: "jsonp",
+					success: function (location) {
+						botSpeaking.textContent = "Ton adresse IP est " + location.IPv4 + " !";
+						reponse(botSpeaking);
+					}
+				});
+			}, 2000);
+		}, 2000);
+	}
+
+	// VILLE
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ou suis je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/où suis je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/où suis-je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ou suis-je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/où je suis.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ou je suis.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/ou suis-je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/où suis-je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/sais tu où j'habite.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/sais tu dans quelle ville je suis.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dans quelle ville suis-je.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dans quelle ville je suis.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/localise moi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dans quelle ville suis je.*/)) {
+		setTimeout(function () {
+			document.getElementById("loader").style.display = "block";
+			setTimeout(function () {
+				var botSpeaking = document.createElement("p");
+				$.ajax({
+					url: "https://geoip-db.com/jsonp",
+					jsonpCallback: "callback",
+					dataType: "jsonp",
+					success: function (location) {
+						botSpeaking.textContent = "Tu es près de " + location.city + ", " + location.state + ", " + location.country_name + " !";
+						reponse(botSpeaking);
+					}
+				});
+			}, 2000);
+		}, 2000);
+	}
+
 	// DATE
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour on est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est le combien.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour sommes-nous.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/on est quel jour.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel jour on est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle est la date d'aujourd'hui.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -89,7 +128,7 @@ function speaking() {
 	}
 
 	// HEURE
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure il est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/il est quelle heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure est-il.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quelle heure il est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi l'heure.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne-moi l'heure.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -107,8 +146,43 @@ function speaking() {
 		}, 2000);
 	}
 
+	// RECHERCHE
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/recherche.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qu'est ce qu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qu'est-ce qu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dis moi ce qu'est.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/c'est quoi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi la définition.*/)) {
+		setTimeout(function () {
+			document.getElementById("loader").style.display = "block";
+			var recherche = userSpeaking.textContent.split(" ").splice(-1)[0];
+			if (recherche == "!" || recherche == ".") {
+				recherche = userSpeaking.textContent.split(" ").splice(-2)[0];
+			}
+			setTimeout(function () {
+				var botSpeaking = document.createElement("p");
+				var img = document.createElement("img");
+				img.style.height = "160px";
+				img.style.width = "200px";
+				img.style.objectFit = "cover";
+				img.className = "rounded";
+				$.ajax({
+					url: "https://cors-anywhere.herokuapp.com/http://api.duckduckgo.com/?q=" + recherche.replace(".", "").replace("!", "").replace("?", "") + ".&format=json",
+					jsonpCallback: "callback",
+					dataType: "json",
+					success: function (resultat) {
+						botSpeaking.textContent = resultat.Abstract;
+						if (botSpeaking.textContent == "") {
+							botSpeaking.textContent = "Malheureusement, je ne sais pas !";
+						}
+						img.src = resultat.Image;
+						reponse(botSpeaking);
+						if (img.src !== "") {
+							// document.getElementById("conversation").appendChild(img); EXPERIMENTAL
+						}
+					}
+				});
+			}, 1000);
+		}, 2000);
+	}
+
 	// PRESENTATION
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui t'es.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/quel est ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui es tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/t'es qui.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/qui t'es.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment t'appelles-tu.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/donne moi ton nom.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/présente toi.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/comment tu t'appelles.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -127,7 +201,7 @@ function speaking() {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
 				var botSpeaking = document.createElement("p");
-				var blagues = ["Quel est le contraire du Plutonium ? Le Mointonium !", "Votre ordinateur est infecté par un virus.", "Je ne suis pas un robot ! Ah si...", "Tu as cru ?", "Je fais aussi la cuisine."];
+				var blagues = ["Quel est le contraire du Plutonium ? Le Mointonium !", "Votre ordinateur est infecté par un virus.", "Je ne suis pas un robot ! Ah si...", "Je fais aussi la cuisine.", "La base virale a été mise à jour !"];
 				var blague = blagues[Math.floor(Math.random() * blagues.length)];
 				botSpeaking.textContent = blague;
 				reponse(botSpeaking);
@@ -190,7 +264,7 @@ function speaking() {
 	}
 
 	// DESSIN CERCLE
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un cercle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un cercle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un rond.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un rond.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un cercle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un cercle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine-moi un cercle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un rond.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un rond.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine-moi un rond.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -212,7 +286,7 @@ function speaking() {
 	}
 
 	// DESSIN CARRE
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un carré.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un carré.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un carré.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un carré.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine-moi un carré.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -234,7 +308,7 @@ function speaking() {
 	}
 
 	// DESSIN TRIANGLE
-	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un triangle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un triangle.*/)) {
+	else if (userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine un triangle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine moi un triangle.*/) || userSpeaking.textContent.toLowerCase() == userSpeaking.textContent.toLowerCase().match(/dessine-moi un triangle.*/)) {
 		setTimeout(function () {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
@@ -300,7 +374,7 @@ function speaking() {
 			document.getElementById("loader").style.display = "block";
 			setTimeout(function () {
 				var botSpeaking = document.createElement("p");
-				var presentation = "Je suis capable de saluer, me présenter, répondre à un remerciement, ouvrir un nouvel onglet ou une page web, actualiser la page, donner la date et l'heure, dessiner un cercle, un carré ou un triangle, additionner, soustraire, multiplier et diviser, et faire de l'humour.";
+				var presentation = "Je suis capable de saluer, me présenter, répondre à un remerciement, ouvrir un nouvel onglet ou une page web, actualiser la page, donner la date et l'heure, dessiner un cercle, un carré ou un triangle, additionner, soustraire, multiplier et diviser, faire de l'humour, donner l'adresse ip et la ville, et donner la définition d'un mot";
 				botSpeaking.textContent = presentation;
 				reponse(botSpeaking);
 			}, 4000);
