@@ -2,121 +2,121 @@
 <html lang="fr">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Gauthier STAEHLER">
-    <title>PZ-5CO</title>
-    <link href="pz5co/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="pz5co/css/simple-sidebar.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="pz5co/img/logo.jpg" rel="icon">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Gauthier STAEHLER">
+	<title>PZ-5CO</title>
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/simple-sidebar.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="img/logo.jpg" rel="icon">
 </head>
 
 <body class="bg-light">
-    <div id="wrapper" class="toggled">
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav text-center" style="padding: 32px; padding-top: 18px;">
-                <li class="sidebar-brand">
-                    <img src="pz5co/img/logo.jpg" alt="Logo" width="60" height="60" class="rounded"> <!-- Fond vecteur créé par starline - fr.freepik.com -->
-                </li>
-                <li><i>version 0.5.2</i></li>
-                <li>
-                    <small>Entièrement écrit par</small>
-                    <a href="https://gstaehler.github.io/">Gauthier Staehler</a>
-                    <hr style="margin-top: 8px; margin-bottom: 8px;">
-                    <small>PZ-5CO est un programme JavaScript d'agent conversationnel qui répond et effectue des actions uniquement grâce à des commandes textuelles. L'intérêt du projet est de pouvoir demander au programme de faire des opérations malgré la contrainte du texte.</small><br>
-                    <small style="text-decoration: underline;">Technologies utilisées :</small><br>
-                    <i class="fab fa-html5 fa-2x" title="HTML5"></i>
-                    <i class="fab fa-css3-alt fa-2x" title="CSS3"></i>
-                    <i class="fab fa-js fa-2x" title="JavaScript"></i><br>
-                    <small><i>Bootstrap 4.1.1</i></small><br>
-                    <small><i>FontAwesome 5.6.3</i></small><br>
-                    <small><i>jQuery 3.3.1</i></small>
-                    <hr style="margin-top: 8px; margin-bottom: 8px;">
-                    <a href="https://www.linkedin.com/in/gauthier-staehler-735075138/" target="_blank" title="Gauthier Staehler sur LinkedIn" class="fab fa-linkedin fa-2x" style="width: 0px; position: relative; left: 72px;"></a>
-                </li>
-            </ul>
-        </div>
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="d-flex justify-content">
-                    <div href="#menu-toggle">
-                        <i class="fas fa-angle-double-left" id="menu-toggle" style="position: relative; right: 20px; top: 14px; cursor: pointer;"></i>
-                    </div>
-                    <h1>PZ-5CO</h1>
-                    <div>
-                        <i class="far fa-question-circle" data-toggle="modal" data-target="#exampleModalCenter" style="position: relative; left: 12px; top: 4px; cursor: pointer;"></i>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Fonctionnalités :</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <ul>
-                                    <small>
-                                        <li>Dites <code>"Bonjour"</code>, <code>"Salut"</code> ... et le programme répondra en prenant en compte l'heure de la journée !</li>
-                                        <li>Répond à <code>"Comment vas-tu?"</code></li>
-                                        <li>Répond à <code>"Comment t'appelles-tu?"</code></li>
-                                        <li>Fais de l'humour si on lui demande <code>"Raconte-moi une blague !"</code></li>
-                                        <li>Répond à un remerciement comme <code>"Merci !"</code></li>
-                                        <li>Ouvre une page web .com dans un nouvel onglet. <code>"Ouvre ... "</code></li>
-                                        <li>Ouvre un nouvel onglet si on lui demande <code>"Ouvre un nouvel onglet !"</code></li>
-                                        <li>Actualise la page actuelle en lui demandant <code>"Actualise !"</code></li>
-                                        <li>Est capable d'additionner, soustraire, multiplier et diviser: <code>"8 + 2?"</code>, <code>"8 - 2?"</code>, <code>"8 * 2?"</code>, <code>"8 / 2?"</code></li>
-                                        <li>Peut générer un cercle, un carré ou un triangle en lui demandant <code>"Dessine-moi un carré !"</code></li>
-                                        <li>Peut dire quel jour on est et quelle heure il est: <code>"Quelle heure est-il?"</code>, <code>"Quel jour sommes-nous?"</code></li>
-                                        <li>Peut donner l'adresse IP de l'utilisateur et sa localisation : <code>"Quelle est mon adresse IP?"</code>, <code>"Où suis-je?"</code></li>
-                                        <li>Est capable de rechercher la définition d'un nom commun : <code>"Qu'est-ce qu'un robot?"</code></li>
-                                        <li>Dit si il ne comprend pas ou ne sais pas mais est capable de comprendre des variantes aux exemples ci-dessus !</li>
-                                        <li><span style="text-decoration: underline;">Navigateur conseillé</span> : Google Chrome !</li>
-                                        <li>N'est pas compatible avec Internet Explorer ! <i class="fas fa-exclamation-triangle"></i></li>
-                                        <li>Aucune donnée n'est conservée par l'application !</li>
-                                    </small>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body" style="padding-top: 4px; padding-bottom: 0px; margin-top: 8px; margin-bottom: 8px;">
-                        <b>Notes de la mise à jour 0.5.2 :</b>
-                        <small>
-                            <ul style="margin-top: 10px;">
-                                <li>Optimisation des fichiers</li>
-                                <li>Résolution de bugs divers</li>
-                            </ul>
-                        </small>
-                    </div>
-                </div>
-                <form id="form" onsubmit="return false;">
-                    <input style="z-index: 10;" class="form-control" type="text" placeholder="Exemple: Que peux tu faire?" id="userInput" value="" autocomplete="off" autofocus />
-                    <input style="display: none;" type="submit" onclick="speaking();" />
-                </form>
-                <div id="conversation"></div>
-                <div id="loader" style="display: none;">
-                    <img src="pz5co/img/loader.gif" alt="Loader">
-                </div>
-            </div>
-        </div>
-    </div>
+	<div id="wrapper" class="toggled">
+		<div id="sidebar-wrapper">
+			<ul class="sidebar-nav text-center" style="padding: 32px; padding-top: 18px;">
+				<li class="sidebar-brand">
+					<img src="img/logo.jpg" alt="Logo" width="60" height="60" class="rounded"> <!-- Fond vecteur créé par starline - fr.freepik.com -->
+				</li>
+				<li><i>version 0.5.2</i></li>
+				<li>
+					<small>Entièrement écrit par</small>
+					<p>Gauthier Staehler</p>
+					<hr style="margin-top: 8px; margin-bottom: 8px;">
+					<small>PZ-5CO est un programme JavaScript d'agent conversationnel qui répond et effectue des actions uniquement grâce à des commandes textuelles. L'intérêt du projet est de pouvoir demander au programme de faire des opérations malgré la contrainte du texte.</small><br>
+					<small style="text-decoration: underline;">Technologies utilisées :</small><br>
+					<i class="fab fa-html5 fa-2x" title="HTML5"></i>
+					<i class="fab fa-css3-alt fa-2x" title="CSS3"></i>
+					<i class="fab fa-js fa-2x" title="JavaScript"></i><br>
+					<small><i>Bootstrap 4.1.1</i></small><br>
+					<small><i>FontAwesome 5.6.3</i></small><br>
+					<small><i>jQuery 3.3.1</i></small>
+					<hr style="margin-top: 8px; margin-bottom: 8px;">
+					<a href="https://www.linkedin.com/in/gauthier-staehler-735075138/" target="_blank" title="Gauthier Staehler sur LinkedIn" class="fab fa-linkedin fa-2x" style="width: 0px; position: relative; left: 72px;"></a>
+				</li>
+			</ul>
+		</div>
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<div class="d-flex justify-content">
+					<div href="#menu-toggle">
+						<i class="fas fa-angle-double-left" id="menu-toggle" style="position: relative; right: 20px; top: 14px; cursor: pointer;"></i>
+					</div>
+					<h1>PZ-5CO</h1>
+					<div>
+						<i class="far fa-question-circle" data-toggle="modal" data-target="#exampleModalCenter" style="position: relative; left: 12px; top: 4px; cursor: pointer;"></i>
+					</div>
+				</div>
 
-    <script src="pz5co/index.js"></script>
-    <script src="pz5co/vendor/jquery/jquery.min.js"></script>
-    <script src="pz5co/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-            $("#menu-toggle").toggleClass("fa-angle-double-right");
-        });
-    </script>
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Fonctionnalités :</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<ul>
+									<small>
+										<li>Dites <code>"Bonjour"</code>, <code>"Salut"</code> ... et le programme répondra en prenant en compte l'heure de la journée !</li>
+										<li>Répond à <code>"Comment vas-tu?"</code></li>
+										<li>Répond à <code>"Comment t'appelles-tu?"</code></li>
+										<li>Fais de l'humour si on lui demande <code>"Raconte-moi une blague !"</code></li>
+										<li>Répond à un remerciement comme <code>"Merci !"</code></li>
+										<li>Ouvre une page web .com dans un nouvel onglet. <code>"Ouvre ... "</code></li>
+										<li>Ouvre un nouvel onglet si on lui demande <code>"Ouvre un nouvel onglet !"</code></li>
+										<li>Actualise la page actuelle en lui demandant <code>"Actualise !"</code></li>
+										<li>Est capable d'additionner, soustraire, multiplier et diviser: <code>"8 + 2?"</code>, <code>"8 - 2?"</code>, <code>"8 * 2?"</code>, <code>"8 / 2?"</code></li>
+										<li>Peut générer un cercle, un carré ou un triangle en lui demandant <code>"Dessine-moi un carré !"</code></li>
+										<li>Peut dire quel jour on est et quelle heure il est: <code>"Quelle heure est-il?"</code>, <code>"Quel jour sommes-nous?"</code></li>
+										<li>Peut donner l'adresse IP de l'utilisateur et sa localisation : <code>"Quelle est mon adresse IP?"</code>, <code>"Où suis-je?"</code></li>
+										<li>Est capable de rechercher la définition d'un nom commun : <code>"Qu'est-ce qu'un robot?"</code></li>
+										<li>Dit si il ne comprend pas ou ne sais pas mais est capable de comprendre des variantes aux exemples ci-dessus !</li>
+										<li><span style="text-decoration: underline;">Navigateur conseillé</span> : Google Chrome !</li>
+										<li>N'est pas compatible avec Internet Explorer ! <i class="fas fa-exclamation-triangle"></i></li>
+									</small>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body" style="padding-top: 4px; padding-bottom: 0px; margin-top: 8px; margin-bottom: 8px;">
+						<b>Notes de la mise à jour 0.5.2 :</b>
+						<small>
+							<ul style="margin-top: 10px;">
+								<li>Optimisation des fichiers</li>
+								<li>Résolution de bugs divers</li>
+							</ul>
+						</small>
+					</div>
+				</div>
+				<form id="form" onsubmit="return false;">
+					<input style="z-index: 10;" class="form-control" type="text" placeholder="Exemple: Que peux tu faire?" id="userInput" value="" autocomplete="off" autofocus />
+					<input style="display: none;" type="submit" onclick="speaking();" />
+				</form>
+				<div id="conversation"></div>
+				<div id="loader" style="display: none;">
+					<img src="img/loader.gif" alt="Loader">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="index.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+			$("#menu-toggle").toggleClass("fa-angle-double-right");
+		});
+	</script>
 </body>
 
 </html>
