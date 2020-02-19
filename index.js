@@ -4,6 +4,12 @@ function speaking() {
 		botSpeaking.classList.add("bg-info", "text-white", "rounded", "p-2");
 		document.getElementById("loader").style.display = "none";
 		document.getElementById("conversation").appendChild(botSpeaking);
+		const msg = new SpeechSynthesisUtterance(botSpeaking.textContent);
+		msg.volume = 1;
+		msg.rate = 1;
+		msg.pitch = 0;
+		msg.lang = "fr-FR";
+		speechSynthesis.speak(msg);
 	}
 
 	var input = document.getElementById("userInput").value;
