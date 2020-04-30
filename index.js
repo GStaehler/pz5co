@@ -447,3 +447,13 @@ function speaking() {
 	}
 	document.getElementById("userInput").value = "";
 }
+
+function mute() {
+	let volume = document.getElementById("volume");
+	if (volume.className === "fas fa-volume-up fa-2x") {
+		volume.className = "fas fa-volume-mute fa-2x";
+	}
+	else {
+		volume.className = "fas fa-volume-up fa-2x"
+	}
+}
